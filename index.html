@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lamp project lol</title>
+    <link rel="stylesheet" href="index.css"/>
+</head>
+<body>
+    <code id="lamp-title">lamp</code>
+
+    <div class="lamp-container">
+        <div class="lamp">
+
+            <svg height="75" width="140">
+                <polygon id="lamp-face" points="0,0 140,0 85,75 55,75" />  
+            </svg> 
+    
+            <svg height="150" width="10" >
+                <rect id="lamp-stem" height="150" width="10" ></rect>
+            </svg>
+    
+            <svg height="10" width="100">
+                <rect id="lamp-root" height="10" width="100" ></rect>
+            </svg>
+        </div>
+    
+        <label class="switch">
+            <input type="checkbox" onchange="Page_SwitchClick();">
+            <span class="slider round"></span>
+        </label>
+    </div>
+    
+    
+
+</body>
+
+
+<script type="text/javascript">
+    function Page_SwitchClick() {
+        let lamp_title = document.getElementById("lamp-title");
+        let lamp_color = getComputedStyle(document.documentElement).getPropertyValue('--lamp-color');
+
+        if (lamp_color == 'darkgray') {
+            document.documentElement.style.setProperty('--bg', 'white');
+            document.documentElement.style.setProperty('--lamp-color', '#f4eb88');
+            lamp_title.innerText = "lamp: good morning";
+
+        }
+        else {
+            document.documentElement.style.setProperty('--bg', 'black');
+            document.documentElement.style.setProperty('--lamp-color', 'darkgray');
+            lamp_title.innerText = "lamp: good night";
+        }
+    }
+</script>
+</html>
